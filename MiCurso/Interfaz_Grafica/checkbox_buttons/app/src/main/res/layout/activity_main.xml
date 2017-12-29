@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.aramburu.inaki.checkbox_buttons.MainActivity">
+
+    <CheckBox
+        android:onClick="saberAveria"
+        android:id="@+id/checkBoxChapaPintura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pintura y chapa" />
+
+    <CheckBox
+        android:onClick="saberAveria"
+        android:id="@+id/checkBoxCristal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cristal" />
+
+    <CheckBox
+        android:onClick="saberAveria"
+        android:id="@+id/checkBoxMecanica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mecánica" />
+</LinearLayout>

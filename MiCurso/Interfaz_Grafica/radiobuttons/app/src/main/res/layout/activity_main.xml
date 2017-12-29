@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.aramburu.inaki.radiobuttons.MainActivity">
+
+    <RadioGroup
+        android:id="@+id/radioGroupAverias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:onClick="tipoAveria"
+            android:id="@+id/radioButtonChapaPintura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapa y pintura" />
+
+        <RadioButton
+            android:onClick="tipoAveria"
+            android:id="@+id/radioButtonCristal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cristal" />
+
+        <RadioButton
+            android:onClick="tipoAveria"
+            android:id="@+id/radioButtonMecanica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mecanica" />
+    </RadioGroup>
+
+    <Button
+        android:onClick="SaberAveria"
+        android:id="@+id/buttonSaberAveria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Saber avería" />
+</LinearLayout>
