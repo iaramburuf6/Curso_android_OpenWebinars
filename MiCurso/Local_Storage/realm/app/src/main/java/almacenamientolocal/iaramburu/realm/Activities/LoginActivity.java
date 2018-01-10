@@ -1,4 +1,4 @@
-package almacenamientolocal.iaramburu.realm;
+package almacenamientolocal.iaramburu.realm.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import almacenamientolocal.iaramburu.realm.R;
 
 public class LoginActivity extends AppCompatActivity {
 

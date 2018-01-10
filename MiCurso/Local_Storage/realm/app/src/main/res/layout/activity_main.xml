@@ -4,18 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="almacenamientolocal.iaramburu.realm.MainActivity">
+    tools:context="almacenamientolocal.iaramburu.realm.Activities.MainActivity">
 
-    <TextView
+    <fragment
+        android:id="@+id/fragment"
+        android:name="almacenamientolocal.iaramburu.realm.Fragments.ListadoAveriasFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Estas dentro"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="100sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="177dp" />
 
 </android.support.constraint.ConstraintLayout>
