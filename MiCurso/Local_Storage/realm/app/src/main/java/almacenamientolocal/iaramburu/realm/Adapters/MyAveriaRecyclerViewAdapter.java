@@ -77,17 +77,6 @@ public class MyAveriaRecyclerViewAdapter extends RecyclerView.Adapter<MyAveriaRe
                     .into(holder.imageViewFoto);
         }
 
-        // Metodo que comprueba si se ha pinchado en algun sitio de la pantalla
-        holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (null != mListener) {
-                    // Si se ha pulsado, se llama al metodo implementado en MainActivity.java
-                    mListener.onAveriaClick(holder.mItem);
-                }
-            }
-        });
-
         // Metodo que comprueba si se ha pinchado en el boton de editar
         holder.imageViewEditar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,13 +88,24 @@ public class MyAveriaRecyclerViewAdapter extends RecyclerView.Adapter<MyAveriaRe
             }
         });
 
-        // Metodo que comprueba si se ha pinchado en el boton de editar
+        // Metodo que comprueba si se ha pinchado en el boton de detalle
         holder.imageViewDetalle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (null != mListener) {
                     // Si se ha pulsado, se llama al metodo implementado en MainActivity.java
                     mListener.onAveriaDetalle(holder.mItem);
+                }
+            }
+        });
+
+        // Metodo que comprueba si se ha pinchado en el boton de detalle
+        holder.imageViewEliminarAveriaID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (null != mListener) {
+                    // Si se ha pulsado, se llama al metodo implementado en MainActivity.java
+                    mListener.onAveriaEliminar(holder.mItem);
                 }
             }
         });
@@ -125,6 +125,7 @@ public class MyAveriaRecyclerViewAdapter extends RecyclerView.Adapter<MyAveriaRe
         public final ImageView imageViewFoto;
         public final ImageView imageViewDetalle;
         public final ImageView imageViewEditar;
+        public final ImageView imageViewEliminarAveriaID;
         public AveriaDB mItem;
 
         public ViewHolder(View view) {
@@ -137,6 +138,8 @@ public class MyAveriaRecyclerViewAdapter extends RecyclerView.Adapter<MyAveriaRe
             imageViewDetalle = (ImageView) view.findViewById(R.id.imageViewPresupuesto);
 
             imageViewEditar = (ImageView) view.findViewById(R.id.imageViewEditar);
+
+            imageViewEliminarAveriaID = (ImageView) view.findViewById(R.id.imageViewEliminarAveria);
         }
 
         @Override

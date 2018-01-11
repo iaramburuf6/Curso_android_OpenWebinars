@@ -1,8 +1,10 @@
 package almacenamientolocal.iaramburu.realm.Activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,13 +56,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @Override
-    public void onAveriaClick(AveriaDB averiaDB) {
-       /* Intent i = new Intent(this, DetalleAveriaDialogFragment.class);
-        i.putExtra(AveriaDB.AVERIADB_ID,averiaDB.getId());
-        startActivity(i);*/
-    }
-
     // Metodo para instanciar y lanzar el dialogo de editar una averia
     @Override
     public void onAveriaEdit(AveriaDB mItem) {
@@ -73,6 +68,46 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onAveriaDetalle(AveriaDB mItem) {
         dialogDetalle = DetalleAveriaDialogFragment.newInstance(mItem.getId(),mItem.getTitulo(),mItem.getDescripcion(),mItem.getModeloCoche());
         dialogDetalle.show(getSupportFragmentManager(),"DetalleAveriaDialogo");
+    }
+
+    // Metodo para eliminar una averia mediante un Dialogo de confirmacion
+    @Override
+    public void onAveriaEliminar(AveriaDB mItem) {
+        mostrarDialogoConfirmacion(mItem);
+    }
+
+    private void mostrarDialogoConfirmacion(final AveriaDB averiaDB) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Eliminar avería");
+        builder.setMessage("¿Desea eliminar definitivamente la avería: "+averiaDB.getTitulo()+"?");
+
+        builder.setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        // Recuperamos el ID de la averia para poder borrar solo esa
+                        long idAveriaEliminar = averiaDB.getId();
+                        AveriaDB averiaEliminar = realm.where(AveriaDB.class).equalTo(AveriaDB.AVERIADB_ID,idAveriaEliminar).findFirst();
+                        averiaEliminar.deleteFromRealm();
+                    }
+                });
+
+                dialog.dismiss();
+
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User cancelled the dialog
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 

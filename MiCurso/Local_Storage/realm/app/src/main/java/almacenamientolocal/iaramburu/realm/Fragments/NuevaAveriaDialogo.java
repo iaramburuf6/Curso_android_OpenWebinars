@@ -33,10 +33,10 @@ public class NuevaAveriaDialogo extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        builder = new AlertDialog.Builder(getActivity());
-
         // Conseguir el contexto
         ctx = getActivity();
+
+        builder = new AlertDialog.Builder(ctx);
 
         // Get the layout inflater
         LayoutInflater inflater = getActivity().getLayoutInflater();

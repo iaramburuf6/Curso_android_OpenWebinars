@@ -13,65 +13,78 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageViewFoto"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_camera_black_24dp" />
+        <ImageView
+            android:id="@+id/imageViewFoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_camera_black_24dp" />
 
-    <TextView
-        android:id="@+id/textViewID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Titulo"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageViewFoto"
-        app:layout_constraintTop_toTopOf="@+id/imageViewFoto" />
+        <TextView
+            android:id="@+id/textViewID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Titulo"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageViewFoto"
+            app:layout_constraintTop_toTopOf="@+id/imageViewFoto" />
 
-    <TextView
-        android:id="@+id/textViewModeloCoche"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="ModeloCoche"
-        app:layout_constraintStart_toStartOf="@+id/textViewID"
-        app:layout_constraintTop_toBottomOf="@+id/textViewID" />
+        <TextView
+            android:id="@+id/textViewModeloCoche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ModeloCoche"
+            app:layout_constraintStart_toStartOf="@+id/textViewID"
+            app:layout_constraintTop_toBottomOf="@+id/textViewID" />
 
-    <ImageView
-        android:id="@+id/imageViewPresupuesto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/textViewModeloCoche"
-        app:layout_constraintTop_toBottomOf="@+id/textViewModeloCoche"
-        app:srcCompat="@drawable/ic_assignment_black_24dp" />
+        <ImageView
+            android:id="@+id/imageViewPresupuesto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/textViewModeloCoche"
+            app:layout_constraintTop_toBottomOf="@+id/textViewModeloCoche"
+            app:srcCompat="@drawable/ic_assignment_black_24dp" />
 
-    <TextView
-        android:id="@+id/textViewPresupuesto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Presupuesto"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewPresupuesto"
-        app:layout_constraintStart_toEndOf="@+id/imageViewPresupuesto"
-        app:layout_constraintTop_toBottomOf="@+id/textViewModeloCoche" />
+        <TextView
+            android:id="@+id/textViewPresupuesto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Presupuesto"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewPresupuesto"
+            app:layout_constraintStart_toEndOf="@+id/imageViewPresupuesto"
+            app:layout_constraintTop_toBottomOf="@+id/textViewModeloCoche" />
 
         <ImageView
             android:id="@+id/imageViewEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageViewPresupuesto"
-            app:layout_constraintStart_toEndOf="@+id/textViewPresupuesto"
-            app:layout_constraintTop_toTopOf="@+id/imageViewPresupuesto"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageViewEliminarAveria"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+        <ImageView
+            android:id="@+id/imageViewEliminarAveria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewEditar"
+            app:srcCompat="@drawable/ic_delete_black_24dp" />
 
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>
