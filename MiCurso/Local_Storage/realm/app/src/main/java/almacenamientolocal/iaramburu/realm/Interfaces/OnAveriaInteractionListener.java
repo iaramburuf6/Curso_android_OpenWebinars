@@ -10,5 +10,5 @@ public interface OnAveriaInteractionListener {
 
     public void onAveriaClick(AveriaDB averiaDB);
     public void onAveriaEdit(AveriaDB mItem);
-
+    public void onAveriaDetalle(AveriaDB mItem);
 }

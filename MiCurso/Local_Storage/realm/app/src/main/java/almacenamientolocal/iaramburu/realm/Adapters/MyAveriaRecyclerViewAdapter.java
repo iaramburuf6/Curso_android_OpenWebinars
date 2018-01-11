@@ -99,6 +99,17 @@ public class MyAveriaRecyclerViewAdapter extends RecyclerView.Adapter<MyAveriaRe
             }
         });
 
+        // Metodo que comprueba si se ha pinchado en el boton de editar
+        holder.imageViewDetalle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (null != mListener) {
+                    // Si se ha pulsado, se llama al metodo implementado en MainActivity.java
+                    mListener.onAveriaDetalle(holder.mItem);
+                }
+            }
+        });
+
     }
 
     @Override
@@ -112,16 +123,18 @@ public class MyAveriaRecyclerViewAdapter extends RecyclerView.Adapter<MyAveriaRe
         public final TextView textViewModelo;
         public final TextView textViewPresupuesto;
         public final ImageView imageViewFoto;
+        public final ImageView imageViewDetalle;
         public final ImageView imageViewEditar;
         public AveriaDB mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            textViewTitulo = (TextView) view.findViewById(R.id.textViewTitulo);
+            textViewTitulo = (TextView) view.findViewById(R.id.textViewID);
             textViewModelo = (TextView) view.findViewById(R.id.textViewModeloCoche);
             textViewPresupuesto = (TextView) view.findViewById(R.id.textViewPresupuesto);
             imageViewFoto = (ImageView) view.findViewById(R.id.imageViewFoto);
+            imageViewDetalle = (ImageView) view.findViewById(R.id.imageViewPresupuesto);
 
             imageViewEditar = (ImageView) view.findViewById(R.id.imageViewEditar);
         }

@@ -24,7 +24,7 @@
         app:srcCompat="@drawable/ic_camera_black_24dp" />
 
     <TextView
-        android:id="@+id/textViewTitulo"
+        android:id="@+id/textViewID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -40,8 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="ModeloCoche"
-        app:layout_constraintStart_toStartOf="@+id/textViewTitulo"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
+        app:layout_constraintStart_toStartOf="@+id/textViewID"
+        app:layout_constraintTop_toBottomOf="@+id/textViewID" />
 
     <ImageView
         android:id="@+id/imageViewPresupuesto"

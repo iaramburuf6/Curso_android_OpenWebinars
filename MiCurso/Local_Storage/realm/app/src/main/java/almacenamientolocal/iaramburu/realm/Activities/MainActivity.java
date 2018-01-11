@@ -1,6 +1,5 @@
 package almacenamientolocal.iaramburu.realm.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
@@ -9,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import almacenamientolocal.iaramburu.realm.Fragments.DetalleAveriaFragment;
+import almacenamientolocal.iaramburu.realm.Fragments.DetalleAveriaDialogFragment;
 import almacenamientolocal.iaramburu.realm.Fragments.EditAveriaDialogFragment;
 import almacenamientolocal.iaramburu.realm.Fragments.NuevaAveriaDialogo;
 import almacenamientolocal.iaramburu.realm.Interfaces.OnAveriaInteractionListener;
@@ -22,13 +21,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         OnAveriaInteractionListener,
         OnNuevaAveriaListener {
 
-    DialogFragment dialogNuevaAveria, dialogEditAveria;
+    DialogFragment dialogNuevaAveria, dialogEditAveria, dialogDetalle;
     Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        realm = Realm.getDefaultInstance();
     }
 
 
@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onAveriaClick(AveriaDB averiaDB) {
-        Intent i = new Intent(this, DetalleAveriaFragment.class);
+       /* Intent i = new Intent(this, DetalleAveriaDialogFragment.class);
         i.putExtra(AveriaDB.AVERIADB_ID,averiaDB.getId());
-        startActivity(i);
+        startActivity(i);*/
     }
 
     // Metodo para instanciar y lanzar el dialogo de editar una averia
@@ -68,10 +68,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dialogEditAveria.show(getSupportFragmentManager(),"EditAveriaDialogo");
     }
 
+    // Metodo para instanciar y lanzar el dialogo de detalle una averia
+    @Override
+    public void onAveriaDetalle(AveriaDB mItem) {
+        dialogDetalle = DetalleAveriaDialogFragment.newInstance(mItem.getId(),mItem.getTitulo(),mItem.getDescripcion(),mItem.getModeloCoche());
+        dialogDetalle.show(getSupportFragmentManager(),"DetalleAveriaDialogo");
+    }
+
 
     // Metodo para guardar los datos con realm
     @Override
     public void onAveriaGuardarClickListener(final String titulo, final String descripcion, final String modelo) {
+
+        //realm = Realm.getDefaultInstance();
         realm.executeTransaction(new Realm.Transaction() {
             // Se crea un nuevo hilo en segundo plano
             @Override
@@ -86,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // Se copia/guarda el nuevo objeto en realm
                 realm.copyToRealm(nuevaAveria);
+
             }
         });
     }

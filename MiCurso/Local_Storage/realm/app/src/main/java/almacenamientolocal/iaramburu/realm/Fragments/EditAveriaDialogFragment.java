@@ -79,6 +79,11 @@ public class EditAveriaDialogFragment extends DialogFragment {
         editTextDescripcion = (EditText) v.findViewById(R.id.editTextDescripcion);
         editTextModeloCoche = (EditText) v.findViewById(R.id.editTextModeloCoche);
 
+        // Poner los valores a los componentes de layout, para que aparezcan
+        editTextTitulo.setText(titulo);
+        editTextDescripcion.setText(descripcion);
+        editTextModeloCoche.setText(modelo);
+
         builder.setView(v);
 
         // Metodo para actualizar la averia con el metodo de actualizarOnClick implementado en MainActivity.java
