@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Conexion_API_Rest</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="preferencias_mecaround_file">PrefenciasMecAround</string>
+    <string name="preferencias_email">email</string>
+    <string name="preferencias_nombre">nombre</string>
+    <string name="preferencias_islogin">islogin</string>
+    <string name="title_activity_prueba">prueba</string>
+    <string name="title_activity_detalle_averia">DetalleAveriaActivity</string>
+    <string name="preferencias_key">apikey</string>
+
+</resources>
